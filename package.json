@@ -1,6 +1,6 @@
 {
   "name": "iframe-swapper",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "iframe-swapper.js",
   "scripts": {
