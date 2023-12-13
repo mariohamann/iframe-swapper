@@ -9,7 +9,7 @@ permissions:
 
 jobs:
     quality-gate:
-        name: Release
+        name: Quality Gate
         runs-on: ubuntu-latest
         container:
             image: mcr.microsoft.com/playwright:v1.40.1-jammy
@@ -33,6 +33,8 @@ jobs:
         name: Release
         needs: [quality-gate]
         runs-on: ubuntu-latest
+        permissions:
+            contents: write # to be able to publish a GitHub release
         steps:
             - name: Checkout
               uses: actions/checkout@v4
