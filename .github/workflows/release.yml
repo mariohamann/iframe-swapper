@@ -12,7 +12,7 @@ jobs:
         name: Release
         runs-on: ubuntu-latest
         container:
-            image: mcr.microsoft.com/playwright:v1.39.0-jammy
+            image: mcr.microsoft.com/playwright:v1.40.1-jammy
         steps:
             - name: Checkout
               uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
                   version: 8.6.2
             - name: Install dependencies
               run: pnpm i
-            - name: Crete types
+            - name: Run tests
               run: pnpm run test
             - name: Release
               env:
