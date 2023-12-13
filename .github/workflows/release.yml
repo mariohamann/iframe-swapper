@@ -1,0 +1,37 @@
+name: Release
+on:
+    push:
+        branches:
+            - main
+
+permissions:
+    contents: read
+
+jobs:
+    release:
+        name: Release
+        runs-on: ubuntu-latest
+        container:
+            image: mcr.microsoft.com/playwright:v1.39.0-jammy
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "lts/*"
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v2
+              with:
+                  version: 8.6.2
+            - name: Install dependencies
+              run: pnpm i
+            - name: Crete types
+              run: pnpm run test
+            - name: Release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: npx semantic-release
