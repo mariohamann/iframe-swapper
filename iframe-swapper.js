@@ -6,6 +6,8 @@ class IframeSwapper extends HTMLElement {
       <style>
         :host {
           display: block;
+          width: 100%;
+          height: 100%;
         }
         ::slotted(iframe) {
           width: 100%;
