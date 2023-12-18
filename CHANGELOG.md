@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/mariohamann/iframe-swapper/compare/v1.1.0...v1.1.1) (2023-12-18)
+
+
+### Bug Fixes
+
+* improve styles for :host ([4c3d687](https://github.com/mariohamann/iframe-swapper/commit/4c3d687dbf510ff5293d8517e2686c8f8c5dea17))
+
 # [1.1.0](https://github.com/mariohamann/iframe-swapper/compare/v1.0.0...v1.1.0) (2023-12-18)
 
 
