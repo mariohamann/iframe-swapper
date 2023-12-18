@@ -121,6 +121,25 @@ describe('iframe-swapper component tests', () => {
     await waitUntil(() => el.querySelector('iframe').contentWindow.scrollY === 100);
   });
 
+  it('should have a default delay', async () => {
+    const el = await fixture(html`<iframe-swapper></iframe-swapper>`);
+    const events = setupEventListeners(el);
+
+    // add first iframe
+    el.addIframe({ srcdoc });
+    await waitUntil(() => events.iframeLoaded);
+
+    // add second iframe
+    el.addIframe({ srcdoc });
+    await waitUntil(() => events.iframeLoaded);
+    const startTime = performance.now();
+    await waitUntil(() => events.iframeSwapped);
+    const endTime = performance.now();
+
+    // 60ms tolerance for the test to pass
+    expect(endTime - startTime).to.be.at.within(40, 160);
+  });
+
   it('should respect swap-delay attribute', async () => {
     const delay = 1000;
     const el = await fixture(html`<iframe-swapper swap-delay="${delay}"></iframe-swapper>`);

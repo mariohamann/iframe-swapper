@@ -49,7 +49,7 @@ The `iframe-swapper` is a custom web component designed for dynamically managing
 
 ## Attributes
 
--   `swap-delay`: Time in milliseconds to delay the swap of iframes.
+-   `swap-delay`: Time in milliseconds to delay the swap of iframes. Defaults to `100`.
 -   `listen-for`: Custom event type to listen for from the iframe content.
 
 ## API

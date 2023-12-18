@@ -7,7 +7,7 @@ class IframeSwapper extends HTMLElement {
 
   connectedCallback() {
     this.observer.observe(this, { childList: true });
-    this.swapDelay = this.getAttribute('swap-delay');
+    this.swapDelay = this.getAttribute('swap-delay') || 100;
     this.customEventName = this.getAttribute('listen-for');
   }
 
