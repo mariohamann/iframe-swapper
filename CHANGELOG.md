@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/mariohamann/iframe-swapper/compare/v1.0.0...v1.1.0) (2023-12-18)
+
+
+### Features
+
+* add default styles for iframes + swapper ([a7be2c3](https://github.com/mariohamann/iframe-swapper/commit/a7be2c3c8f5fffb30fef6802e41c92316cf551a9))
+* add default swap-delay ([9077d15](https://github.com/mariohamann/iframe-swapper/commit/9077d153d1c3f95d057b7da5a7535d253dca9fa2))
+
 # 1.0.0 (2023-12-13)
 
 
