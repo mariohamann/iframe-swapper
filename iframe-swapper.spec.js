@@ -168,4 +168,21 @@ describe('iframe-swapper component tests', () => {
     el.addIframe({ srcdoc });
     await waitUntil(() => events.iframeLoaded);
   });
+
+  it('should give correct default CSS to slotted iframes', async () => {
+    const el = await fixture(html`<iframe-swapper style="width: 100px; height: 100px;" ></iframe-swapper>`);
+    const events = setupEventListeners(el);
+
+    el.addIframe({ srcdoc });
+
+    await waitUntil(() => events.iframeLoaded);
+
+    const iframe = el.querySelector('iframe');
+
+    const computedStyle = window.getComputedStyle(iframe);
+
+    expect(computedStyle.width).to.equal('100px');
+    expect(computedStyle.height).to.equal('100px');
+    expect(computedStyle.border).to.equal('0px none rgb(0, 0, 0)');
+  });
 });
